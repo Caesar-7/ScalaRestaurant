@@ -1,0 +1,7 @@
+# Directories
+target/
+project/target/
+
+#VS Code
+scalavista.json
+scalavista-vscode.log
