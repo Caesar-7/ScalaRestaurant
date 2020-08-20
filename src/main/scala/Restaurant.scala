@@ -1,7 +1,6 @@
 package restaurant
 
-import scala.collection.mutable.ArrayBuffer
-import scala.collection.mutable.SortedMap
+import scala.collection.mutable.{ArrayBuffer, SortedMap}
 
 class Item(
     val name: String,
