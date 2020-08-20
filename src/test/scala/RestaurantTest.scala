@@ -5,9 +5,7 @@ import org.scalatest.FunSuite
 class ItemTest extends FunSuite {
     test("info() method works") {
         val coke = new Item("Coke", 1, "", 1.0)
-        val infos = coke.info()
-
-        assert(infos == Map(
+        assert(coke.info() == Map(
             "Name" -> "Coke",
             "Item ID" -> 1,
             "Description" -> "",
@@ -43,5 +41,4 @@ class OrderTest extends FunSuite {
         myOrder.wipeOrder()
         assert(myOrder.info() == "The order is empty")
     }
-
 }
