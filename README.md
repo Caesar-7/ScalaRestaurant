@@ -17,14 +17,22 @@ ScalaRestaurant is a package that lets you create items and orders for restauran
 
 ## Installing
 
-If you want to use this package in the Scala REPL or in your project, first download the repo:
+Before installing, make sure you have installed Scala 2.13.2 or higher.
 
+If you want to use this package in the Scala REPL or in your project, first download the repo:
 
 ```bash
 git clone https://github.com/Caesar-7/ScalaRestaurant.git
 ```
 
-Then, you can either use sbt, or just copy [Restaurant.scala](https://github.com/Caesar-7/ScalaRestaurant/blob/master/src/main/scala/Restaurant.scala) in any repository and compile it. You can import the package like this:
+Then, you can either use sbt, or just copy the [src/main/scala](https://github.com/Caesar-7/ScalaRestaurant/blob/master/src/main/scala) directory and compile it:
+
+```bash
+cd yourdirectory/scala
+scalac *
+```
+
+Then, you can import the package like this:
 
 ```scala
 // Import all the classes
@@ -37,7 +45,7 @@ import restaurant.Item
 
 ## How it works
 
-Inside the `restaurant` package there are two classes: `Item` and `Order`
+Inside the `restaurant` package there are two classes: `Item` and `Order`.
 
 
 The `Item` class defines an item of the menu. It has a `name (String)`, an `itemId (Int)`, a `description (String)` and a `price (Double)`.
@@ -45,7 +53,7 @@ The `Item` class also has an `info` method that returns a `Map` containing the i
 
 ```scala
 // Define a new Item
-val coke = new Item("Coke", 1, "A refreshing drink", 1.0)
+val coke = Item("Coke", 1, "A refreshing drink", 1.0)
 
 // Print the item's informations
 println(coke.info())
@@ -58,8 +66,8 @@ If the order contains more than one of the same item, the `info` method will gro
 
 ```scala
 // Both of these statements are valid
-val myOrder = new Order()
-val myOrder = new Order(coke, pizza)
+val myOrder = Order()
+val myOrder = Order(coke, pizza)
 
 // Add items to an order
 myOrder.addItems(pizza, chips)
@@ -74,7 +82,7 @@ myOrder.wipeOrder()
 println(myOrder.info) // Output: "[item, another item], cost$"
 ```
 
-> **N.B.** The list of items returned by the `info` method is sorted in alphabetical order. The method will also display the dollar sign near the total cost of the order; if you want to change it or remove it you can edit the [last line of `Restaurant.scala`](https://github.com/Caesar-7/ScalaRestaurant/blob/master/src/main/scala/Restaurant.scala#L69)
+> **N.B.** The list of items returned by the `info` method is sorted in alphabetical order. The method will also display the dollar sign near the total cost of the order; if you want to change it or remove it, you can edit the last line of the class in [`Order.scala`](https://github.com/Caesar-7/ScalaRestaurant/blob/master/src/main/scala/Order.scala#L50).
 
 
 ## Contributors

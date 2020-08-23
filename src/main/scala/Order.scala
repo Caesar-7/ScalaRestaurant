@@ -2,28 +2,9 @@ package restaurant
 
 import scala.collection.mutable.{ArrayBuffer, SortedMap}
 
-class Item(
-    val name: String,
-    val itemId: Int,
-    val description: String,
-    val price: Double
-) {
-    // Creates the map containing the item's informations
-    val infoMap = Map(
-        "Name" -> name,
-        "Item ID" -> itemId,
-        "Description" -> description,
-        "Price" -> price
-    )
 
-    // Returns the infoMap
-    def info(): Map[String, Any] = infoMap
-}
-
-
-class Order(val inputItems: Item*) {
+class Order {
     val items = ArrayBuffer[Item]()
-    for (t <- inputItems) yield items += t
 
     // Adds items to the order
     def addItems(newItems: Item*): Unit = items ++= newItems
@@ -68,5 +49,13 @@ class Order(val inputItems: Item*) {
 
             s"[$itemsNames], $total$$"
         }
+    }
+}
+
+object Order {
+    def apply(inputItems: Item*): Order = {
+        val o = new Order
+        for (t <- inputItems) yield o.items += t
+        o
     }
 }

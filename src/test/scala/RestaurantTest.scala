@@ -4,7 +4,7 @@ import org.scalatest.FunSuite
 
 class ItemTest extends FunSuite {
     test("info() method works") {
-        val coke = new Item("Coke", 1, "", 1.0)
+        val coke = Item("Coke", 1, "", 1.0)
         assert(coke.info() == Map(
             "Name" -> "Coke",
             "Item ID" -> 1,
@@ -16,11 +16,11 @@ class ItemTest extends FunSuite {
 
 
 class OrderTest extends FunSuite {
-    val coke = new Item("coke", 1, "", 1.0)
-    val pizza = new Item("pizza", 2, "tomato, mozzarella, basil", 2.0)
-    val chips = new Item("chips", 3, "", 2.0)
+    val coke = Item("coke", 1, "", 1.0)
+    val pizza = Item("pizza", 2, "tomato, mozzarella, basil", 2.0)
+    val chips = Item("chips", 3, "", 2.0)
 
-    val myOrder = new Order(coke)
+    val myOrder = Order(coke)
 
     test("addItems() works") {
         myOrder.addItems(coke, pizza, chips)
